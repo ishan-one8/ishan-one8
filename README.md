@@ -187,3 +187,26 @@ Python application for analysing student marks and understanding academic perfor
 <sub>Turning ideas into software, one commit at a time.</sub>
 
 </div>
+---
+
+## 🤝 Let's Connect
+
+<div align="center">
+
+<a href="https://github.com/ishan-one8">
+<img src="https://img.shields.io/badge/GitHub-ishan--one8-181717?style=for-the-badge&logo=github"/>
+</a>
+
+<br/><br/>
+
+<img
+  src="https://komarev.com/ghpvc/?username=ishan-one8&style=for-the-badge&label=PROFILE+VIEWS"
+/>
+
+<br/><br/>
+
+### `Build → Ship → Learn → Improve`
+
+<sub>Turning ideas into software, one commit at a time.</sub>
+
+</div>
