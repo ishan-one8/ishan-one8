@@ -44,84 +44,109 @@ const ishan = {
 </div>
 
 ---
-
 ## 🚀 Featured Builds
+
+<div align="center">
 
 <table>
 <tr>
-
 <td width="50%" valign="top">
 
-### 🤖 InterviewOS
+<h3 align="center">🤖 InterviewOS</h3>
 
-AI-powered technical interview experience focused on adaptive interviews and candidate evaluation.
+<p align="center">
+AI-powered technical interview platform designed for adaptive interviews, evaluation and a polished candidate experience.
+</p>
 
-**`TypeScript` `AI` `Web`**
+<p align="center">
 
-[Explore Project →](https://github.com/ishan-one8/interviewos-vicodathon)
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" />
+<img src="https://img.shields.io/badge/AI-8B5CF6?style=flat-square" />
+<img src="https://img.shields.io/badge/Web-58A6FF?style=flat-square" />
+
+</p>
+
+<p align="center">
+<a href="https://github.com/ishan-one8/interviewos-vicodathon">
+<img src="https://img.shields.io/badge/Explore_Project-181717?style=for-the-badge&logo=github&logoColor=white"/>
+</a>
+</p>
 
 </td>
 
 <td width="50%" valign="top">
 
-### 🏏 Hand Cricket
+<h3 align="center">🏏 Cricket Score Analysis</h3>
 
-Interactive terminal-based Hand Cricket game built using Python.
+<p align="center">
+Python-based cricket data exploration project focused on analysing match scores and statistics.
+</p>
 
-**`Python` `Game Logic`**
+<p align="center">
 
-[Explore Project →](https://github.com/ishan-one8/Hand-Cricket-Game)
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+<img src="https://img.shields.io/badge/Data_Analysis-3FB950?style=flat-square" />
+<img src="https://img.shields.io/badge/Cricket-22C55E?style=flat-square" />
+
+</p>
+
+<p align="center">
+<a href="https://github.com/ishan-one8/Cricket-Score-Analysis">
+<img src="https://img.shields.io/badge/Explore_Project-181717?style=for-the-badge&logo=github&logoColor=white"/>
+</a>
+</p>
 
 </td>
-
 </tr>
 
 <tr>
-
 <td width="50%" valign="top">
 
-### 📊 Student Marks Analyser
+<h3 align="center">🎮 Hand Cricket</h3>
 
-Python project for analysing and understanding student performance.
+<p align="center">
+Interactive terminal-based Hand Cricket game built with Python and game logic.
+</p>
 
-**`Python` `Data`**
+<p align="center">
 
-[Explore Project →](https://github.com/ishan-one8/Student-Marks-Analyser)
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+<img src="https://img.shields.io/badge/Game_Logic-F59E0B?style=flat-square" />
+
+</p>
+
+<p align="center">
+<a href="https://github.com/ishan-one8/Hand-Cricket-Game">
+<img src="https://img.shields.io/badge/Explore_Project-181717?style=for-the-badge&logo=github&logoColor=white"/>
+</a>
+</p>
 
 </td>
 
 <td width="50%" valign="top">
 
-### 🏏 Cricket Score Analysis
+<h3 align="center">📊 Student Marks Analyser</h3>
 
-Cricket data exploration and score analysis project.
+<p align="center">
+Python application for analysing student marks and understanding academic performance.
+</p>
 
-**`Python` `Analytics`**
+<p align="center">
 
-[Explore Project →](https://github.com/ishan-one8/Cricket-Score-Analysis)
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+<img src="https://img.shields.io/badge/Analytics-58A6FF?style=flat-square" />
+
+</p>
+
+<p align="center">
+<a href="https://github.com/ishan-one8/Student-Marks-Analyser">
+<img src="https://img.shields.io/badge/Explore_Project-181717?style=for-the-badge&logo=github&logoColor=white"/>
+</a>
+</p>
 
 </td>
-
 </tr>
 </table>
-
----
-
-<div align="center">
-
-
-</div>
----
-
-## 🌌 Contribution Universe
-
-<div align="center">
-
-<img 
-  src="./profile-3d-contrib/profile-night-rainbow.svg"
-  alt="Ishan's 3D Contribution Graph"
-  width="85%"
-/>
 
 </div>
 
