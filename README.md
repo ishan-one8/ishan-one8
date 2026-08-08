@@ -109,10 +109,8 @@ Cricket data exploration and score analysis project.
 
 <div align="center">
 
-### `while (alive) { learn(); build(); ship(); improve(); }`
 
 </div>
----
 ---
 
 ## 🌌 Contribution Universe
@@ -122,7 +120,7 @@ Cricket data exploration and score analysis project.
 <img 
   src="./profile-3d-contrib/profile-night-rainbow.svg"
   alt="Ishan's 3D Contribution Graph"
-  width="100%"
+  width="85%"
 />
 
 </div>
@@ -150,6 +148,8 @@ Cricket data exploration and score analysis project.
 ---
 
 <div align="center">
+
+### `while (alive) { learn(); build(); ship(); improve(); }`
 
 ### ⚡ Build. Ship. Learn. Repeat.
 
