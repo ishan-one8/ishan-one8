@@ -112,3 +112,25 @@ Cricket data exploration and score analysis project.
 ### `while (alive) { learn(); build(); ship(); improve(); }`
 
 </div>
+---
+
+## 🐍 Contribution Trail
+
+<div align="center">
+
+<picture>
+  <source
+    media="(prefers-color-scheme: dark)"
+    srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/gh-pages/github-snake-dark.svg"
+  />
+  <source
+    media="(prefers-color-scheme: light)"
+    srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/gh-pages/github-snake.svg"
+  />
+  <img
+    alt="Ishan's GitHub contribution snake"
+    src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/gh-pages/github-snake.svg"
+  />
+</picture>
+
+</div>
