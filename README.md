@@ -147,3 +147,18 @@ Cricket data exploration and score analysis project.
 </picture>
 
 </div>
+---
+
+<div align="center">
+
+### ⚡ Build. Ship. Learn. Repeat.
+
+<img
+  src="https://komarev.com/ghpvc/?username=ishan-one8&style=for-the-badge&label=PROFILE+VIEWS"
+/>
+
+<br/><br/>
+
+<sub>Turning ideas into software, one commit at a time.</sub>
+
+</div>
