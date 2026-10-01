@@ -1,86 +1,74 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/hero.svg" alt="Ishan Kumar — Building What's Next. An animated holographic banner with a neon grid, a spinning reactor core and a boot sequence." width="100%" />
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/hero-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/hero-light.svg" /><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/hero-dark.svg" alt="Ishan Kumar — Developer, builder and product thinker. Building what's next." width="100%" /></picture>
 
-<a href="https://github.com/ishan-one8">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=24&duration=2600&pause=900&color=00E5FF&center=true&vCenter=true&width=800&height=50&lines=%3E+I+build+ideas+into+software_;%3E+Code.+Create.+Ship.+Repeat._;%3E+Exploring+AI%2C+one+project+at+a+time_;%3E+Always+learning%2C+always+building_" alt="Typing animation: I build ideas into software" />
-</a>
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=16&duration=3000&pause=1200&color=8B8B96&center=true&vCenter=true&width=640&height=36&lines=I+build+ideas+into+software.;Code.+Create.+Ship.+Repeat.;Exploring+AI%2C+one+project+at+a+time.;Always+learning%2C+always+building." alt="I build ideas into software." />
+
+<a href="https://github.com/ishan-one8?tab=repositories"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/btn-work-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/btn-work-light.svg" /><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/btn-work-dark.svg" alt="View my work" height="44" /></picture></a>&nbsp;
+<a href="https://www.instagram.com/ishan_one8/"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/btn-instagram-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/btn-instagram-light.svg" /><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/btn-instagram-dark.svg" alt="Instagram" height="44" /></picture></a>
+
+</div>
 
 <br />
 
-<a href="https://github.com/ishan-one8?tab=repositories"><img alt="Explore my work" src="https://img.shields.io/badge/EXPLORE_MY_WORK-0A1030?style=for-the-badge&logo=github&logoColor=00E5FF&labelColor=04060F" /></a>
-<a href="https://www.instagram.com/ishan_one8/"><img alt="Connect on Instagram" src="https://img.shields.io/badge/LET'S_CONNECT-0A1030?style=for-the-badge&logo=instagram&logoColor=FF3DCB&labelColor=04060F" /></a>
-<a href="https://github.com/ishan-one8?tab=followers"><img alt="Live GitHub follower count" src="https://img.shields.io/github/followers/ishan-one8?style=for-the-badge&label=FOLLOWERS&logo=github&logoColor=8B5CFF&labelColor=04060F&color=0A1030" /></a>
-<img alt="Profile views" src="https://komarev.com/ghpvc/?username=ishan-one8&label=PROFILE%20VIEWS&color=8B5CFF&style=for-the-badge" />
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/section-about-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/section-about-light.svg" /><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/section-about-dark.svg" alt="01 — About: Ideas in, products out." width="100%" /></picture>
 
-</div>
-
-<img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/divider.svg" alt="" width="100%" />
-
-## ◈ System status
-
-<div align="center">
-
-<img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/status.svg" alt="ishan@one8 system status — role: Developer, Builder, Product thinker · craft: Web products, Python projects, AI experiments · stack: Python, TypeScript, React, Next.js, Node.js · loop: Learn → Build → Ship → Improve · current: Turning ideas into useful software" width="100%" />
-
-</div>
-
-I enjoy taking an idea from the first sketch to a working product — from interactive web experiences to Python tools, data exploration and AI experiments.
-
-## ◈ Project archive
-
-<div align="center">
-
-<a href="https://github.com/ishan-one8/interviewos-vicodathon"><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/project-interviewos.svg" alt="InterviewOS — adaptive AI technical interviews · TypeScript, AI, Web" width="49%" /></a>
-<a href="https://github.com/ishan-one8/Cricket-Score-Analysis"><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/project-cricket-analysis.svg" alt="Cricket Score Analysis — Python data analysis of cricket scores · Python, Data" width="49%" /></a>
-<a href="https://github.com/ishan-one8/Hand-Cricket-Game"><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/project-hand-cricket.svg" alt="Hand Cricket Game — an interactive terminal game · Python, Game logic" width="49%" /></a>
-<a href="https://github.com/ishan-one8/Student-Marks-Analyser"><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/project-marks-analyser.svg" alt="Student Marks Analyser — performance insights from student marks · Python, Analytics" width="49%" /></a>
-
-<a href="https://github.com/ishan-one8?tab=repositories"><b>&gt; ls ~/repositories --all →</b></a>
-
-</div>
-
-## ◈ Tech arsenal
-
-<div align="center">
-
-<img src="https://skillicons.dev/icons?i=python,js,ts,html,css,react,nextjs,nodejs,git,github,githubactions,vscode&theme=dark&perline=12" alt="Python, JavaScript, TypeScript, HTML, CSS, React, Next.js, Node.js, Git, GitHub, GitHub Actions and VS Code" />
-
-</div>
-
-## ◈ Telemetry
-
-<div align="center">
-
-<img src="https://streak-stats.demolab.com?user=ishan-one8&hide_border=true&background=04060F&ring=8B5CFF&fire=FF3DCB&currStreakNum=00E5FF&currStreakLabel=00E5FF&sideNums=F2FBFF&sideLabels=7F96BE&dates=5E7AA0&stroke=1A2348" alt="GitHub contribution streak for ishan-one8" width="100%" />
-
-<br /><br />
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/profile-3d-contrib/profile-night-rainbow.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/profile-3d-contrib/profile-season-animate.svg" />
-  <img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/profile-3d-contrib/profile-night-rainbow.svg" alt="Animated 3D GitHub contribution calendar" width="100%" />
-</picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/about-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/about-light.svg" /><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/about-dark.svg" alt="About: I take ideas from the first sketch to a working product — web experiences, Python tools, data and AI experiments. Status: open to build. The loop: learn, build, ship, improve. Focus: AI experiments, web products, Python projects. Daily drivers: Python, TypeScript, JavaScript, React, Next.js, Node.js, Git, GitHub Actions." width="100%" /></picture>
 
 <br />
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/gh-pages/github-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/gh-pages/github-snake.svg" />
-  <img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/gh-pages/github-snake-dark.svg" alt="Animated snake moving through Ishan's GitHub contribution graph" width="100%" />
-</picture>
-
-</div>
-
-<img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/divider.svg" alt="" width="100%" />
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/section-work-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/section-work-light.svg" /><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/section-work-dark.svg" alt="02 — Selected work: Things I've built." width="100%" /></picture>
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/footer.svg" alt="Have an idea? Let's build something useful. End of transmission." width="100%" />
+<a href="https://github.com/ishan-one8/interviewos-vicodathon"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/project-interviewos-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/project-interviewos-light.svg" /><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/project-interviewos-dark.svg" alt="InterviewOS — adaptive AI technical interviews with a polished, real-time candidate experience. TypeScript, AI, Web." width="49%" /></picture></a>
+<a href="https://github.com/ishan-one8/Cricket-Score-Analysis"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/project-cricket-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/project-cricket-light.svg" /><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/project-cricket-dark.svg" alt="Cricket Score Analysis — exploring cricket scores and match patterns through Python data analysis. Python, Pandas, Data." width="49%" /></picture></a>
+<a href="https://github.com/ishan-one8/Hand-Cricket-Game"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/project-hand-cricket-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/project-hand-cricket-light.svg" /><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/project-hand-cricket-dark.svg" alt="Hand Cricket Game — the playground classic rebuilt as an interactive terminal game. Python, CLI, Game logic." width="49%" /></picture></a>
+<a href="https://github.com/ishan-one8/Student-Marks-Analyser"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/project-marks-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/project-marks-light.svg" /><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/project-marks-dark.svg" alt="Student Marks Analyser — turning raw student marks into performance insights and grade spreads. Python, Analytics." width="49%" /></picture></a>
+
+<br />
+
+<a href="https://github.com/ishan-one8?tab=repositories"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/btn-repos-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/btn-repos-light.svg" /><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/btn-repos-dark.svg" alt="Browse all repositories" height="44" /></picture></a>
+
+</div>
+
+<br />
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/section-stack-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/section-stack-light.svg" /><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/section-stack-dark.svg" alt="03 — Toolkit." width="100%" /></picture>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/marquee-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/marquee-light.svg" /><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/marquee-dark.svg" alt="Toolkit: Python, TypeScript, JavaScript, React, Next.js, Node.js, HTML, CSS, Git, GitHub Actions, VS Code, AI, data analysis." width="100%" /></picture>
+
+<div align="center">
+<br />
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=python,ts,js,react,nextjs,nodejs,html,css,git,githubactions,vscode&theme=dark" /><source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=python,ts,js,react,nextjs,nodejs,html,css,git,githubactions,vscode&theme=light" /><img src="https://skillicons.dev/icons?i=python,ts,js,react,nextjs,nodejs,html,css,git,githubactions,vscode&theme=dark" alt="Python, TypeScript, JavaScript, React, Next.js, Node.js, HTML, CSS, Git, GitHub Actions and VS Code icons" /></picture>
+</div>
+
+<br />
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/section-numbers-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/section-numbers-light.svg" /><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/section-numbers-dark.svg" alt="04 — By the numbers: Live from GitHub." width="100%" /></picture>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/stats-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/stats-light.svg" /><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/stats-dark.svg" alt="Live GitHub numbers for ishan-one8: repositories, stars, followers, contributions, top languages and weekly activity." width="100%" /></picture>
+
+<br />
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/section-activity-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/section-activity-light.svg" /><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/section-activity-dark.svg" alt="05 — Activity: Always shipping." width="100%" /></picture>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/activity-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/activity-light.svg" /><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/activity-dark.svg" alt="Contribution heatmap for the last year, with current streak, longest streak and best day." width="100%" /></picture>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/gh-pages/github-snake-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/gh-pages/github-snake.svg" /><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/gh-pages/github-snake-dark.svg" alt="A snake eating its way through Ishan's contribution graph" width="100%" /></picture>
+
+<br />
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/footer-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/footer-light.svg" /><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/footer-dark.svg" alt="What's next: let's build something remarkable. Have an idea? I'm always up for building something useful." width="100%" /></picture>
+
+<div align="center">
+<br />
+
+<a href="https://github.com/ishan-one8"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/btn-github-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/btn-github-light.svg" /><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/btn-github-dark.svg" alt="Follow on GitHub" height="44" /></picture></a>&nbsp;
+<a href="https://www.instagram.com/ishan_one8/"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/btn-instagram-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/btn-instagram-light.svg" /><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/btn-instagram-dark.svg" alt="Instagram" height="44" /></picture></a>
 
 <br /><br />
 
-<a href="https://github.com/ishan-one8"><img src="https://img.shields.io/badge/GITHUB-ishan--one8-0A1030?style=for-the-badge&logo=github&logoColor=00E5FF&labelColor=04060F" alt="Ishan on GitHub" /></a>
-<a href="https://www.instagram.com/ishan_one8/"><img src="https://img.shields.io/badge/INSTAGRAM-ishan__one8-0A1030?style=for-the-badge&logo=instagram&logoColor=FF3DCB&labelColor=04060F" alt="Ishan on Instagram" /></a>
+<img src="https://komarev.com/ghpvc/?username=ishan-one8&label=profile%20views&color=18181b&style=flat-square" alt="Profile views" />
 
 </div>
