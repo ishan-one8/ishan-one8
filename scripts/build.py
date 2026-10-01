@@ -7,7 +7,7 @@ The live numbers card is built separately by scripts/stats.py.
 """
 import math
 
-from kit import both, eyebrow, esc, measure, svg, tile
+from kit import THEMES, both, eyebrow, esc, measure, svg, tile
 
 W = 1200
 
@@ -133,7 +133,7 @@ def hero(t):
 SECTIONS = [
     ("about", "01", "ABOUT", "Ideas in, ", "products out."),
     ("work", "02", "SELECTED WORK", "Things I've ", "built."),
-    ("stack", "03", "TOOLKIT", "The ", "toolkit."),
+    ("stack", "03", "TOOLKIT", "Powered by ", "Python."),
     ("numbers", "04", "BY THE NUMBERS", "Live from ", "GitHub."),
     ("activity", "05", "ACTIVITY", "Always ", "shipping."),
 ]
@@ -267,33 +267,83 @@ def bento(t):
                "Daily drivers: Python, TypeScript, JavaScript, React, Next.js, Node.js, Git, GitHub Actions.", css)
 
 
-# ───────────────────────── marquee ─────────────────────────
-def marquee(t):
-    H = 76
-    items = ["Python", "TypeScript", "JavaScript", "React", "Next.js", "Node.js", "HTML", "CSS",
-             "Git", "GitHub Actions", "VS Code", "AI", "Data analysis"]
-    x, out = 0, []
-    for i, s in enumerate(items):
-        italic = i % 4 == 3
-        if italic:
-            out.append(f'<text class="f-serif" x="{x:.1f}" y="47" font-size="30" fill="{t["text"]}">{esc(s)}</text>')
-            x += measure(s, 30, "serif")
-        else:
-            out.append(f'<text class="f-sans" x="{x:.1f}" y="46" font-size="24" font-weight="500" letter-spacing="-.6" fill="{t["text2"]}">{esc(s)}</text>')
-            x += measure(s, 24, weight=500, spacing=-.6)
-        x += 26
-        out.append(f'<path d="M{x:.1f} 30l4 8-4 8-4-8z" transform="translate(0 0)" fill="{t["text3"]}"/>')
-        x += 30
-    span = x
-    row = "".join(out)
+# ───────────────────────── python showcase ─────────────────────────
+PY_LOGO = "M49 6C30 6 31 14 31 14V24H50V27H23C23 27 10 26 10 45C10 64 21 63 21 63H28V54C28 54 27 43 39 43H58C58 43 69 43 69 32V15C69 15 71 6 49 6Z"
+
+CODE = [
+    [("# ishan.py", "com")],
+    [("class ", "kw"), ("Ishan", "fn"), (":", "")],
+    [("    craft = [", ""), ('"web products"', "str"), (", ", ""), ('"python tools"', "str"), (", ", ""), ('"ai experiments"', "str"), ("]", "")],
+    [("    loop  = [", ""), ('"learn"', "str"), (", ", ""), ('"build"', "str"), (", ", ""), ('"ship"', "str"), (", ", ""), ('"improve"', "str"), ("]", "")],
+    [],
+    [("    def ", "kw"), ("build", "fn"), ("(self, idea):", "")],
+    [("        while ", "kw"), ("True", "kw"), (":", "")],
+    [("            idea = ", ""), ("improve", "fn"), ("(idea)", "")],
+    [("            yield ", "kw"), ("ship", "fn"), ("(idea)", "")],
+    [],
+    [("Ishan", "fn"), ("().", ""), ("build", "fn"), ("(", ""), ('"what\'s next"', "str"), (")", "")],
+]
+
+
+def python_card(t):
+    H = 340
+    dark = t is THEMES["dark"]
+    syn = dict(kw="#C4B5FD" if dark else "#7C3AED", fn="#93C5FD" if dark else "#2563EB",
+               str="#86EFAC" if dark else "#059669", com=t["text3"])
+    syn[""] = t["text"]
+    ex, ey, ew, eh = 456, 20, W - 476, H - 40
+    lines = []
+    for i, segs in enumerate(CODE):
+        y = ey + 72 + i * 21
+        spans = "".join(f'<tspan fill="{syn[k]}">{esc(txt)}</tspan>' for txt, k in segs)
+        lines.append(f'<g class="type" style="animation-delay:{.25 + i * .14:.2f}s">'
+                     f'<text class="f-mono" x="{ex + 40}" y="{y}" text-anchor="end" font-size="12" fill="{t["text3"]}" fill-opacity=".7">{i + 1}</text>'
+                     f'<text class="f-mono" x="{ex + 60}" y="{y}" font-size="14" xml:space="preserve">{spans}</text></g>')
+    last = "".join(txt for txt, _ in CODE[-1])
+    cur_x = ex + 60 + measure(last, 14, "mono") + 3
+    cur_y = ey + 72 + (len(CODE) - 1) * 21
     defs = f"""
-    <linearGradient id="fade" x1="0" x2="1"><stop stop-color="#fff" stop-opacity="0"/><stop offset=".12" stop-color="#fff"/><stop offset=".88" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
-    <mask id="fm"><rect width="{W}" height="{H}" fill="url(#fade)"/></mask>"""
-    css = f".track{{animation:mq 38s linear infinite;}} @keyframes mq{{to{{transform:translateX(-{span:.1f}px);}}}}"
+    <linearGradient id="pyb" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5A9FD4"/><stop offset="1" stop-color="#306998"/></linearGradient>
+    <linearGradient id="pyy" x1="1" y1="1" x2="0" y2="0"><stop stop-color="#FFE873"/><stop offset="1" stop-color="#FFD43B"/></linearGradient>
+    <clipPath id="ed"><rect x="{ex}" y="{ey}" width="{ew}" height="{eh}" rx="16"/></clipPath>"""
+    css = """
+    .type{animation:type .5s cubic-bezier(.2,.7,.2,1) both;}
+    @keyframes type{from{opacity:0;transform:translateX(-8px);}to{opacity:1;transform:none;}}
+    .cur{animation:cur 1.1s steps(1) infinite;} @keyframes cur{50%{opacity:0;}}
+    .bob{animation:bob 6s ease-in-out infinite;} @keyframes bob{50%{transform:translateY(-6px);}}"""
     body = f"""
-  <path d="M0 .5H{W}M0 {H - .5}H{W}" stroke="{t['hair']}" stroke-opacity="{t['hair_op']}"/>
-  <g mask="url(#fm)"><g class="track">{row}<g transform="translate({span:.1f} 0)">{row}</g><g transform="translate({2 * span:.1f} 0)">{row}</g></g></g>"""
-    return svg(t, W, H, body, "Toolkit", "Scrolling list of tools: " + ", ".join(items) + ".", css, defs)
+  {tile(t, 0, 0, W, H, glow=(220, 60, "#3776AB"))}
+  <g clip-path="url(#tc0_0)"><circle cx="300" cy="{H}" r="120" fill="#FFD43B" opacity="{t['aur_op'] * .35:.2f}" filter="url(#blur)"/></g>
+  {eyebrow(t, 32, 48, "PRIMARY LANGUAGE")}
+  <g class="bob">
+    <circle cx="74" cy="114" r="46" fill="{t['surface2']}" stroke="{t['hair']}" stroke-opacity="{t['hair_op'] * 1.6:.2f}"/>
+    <g transform="translate(46 86) scale(.56)">
+      <path d="{PY_LOGO}" fill="url(#pyb)"/><circle cx="39" cy="14.5" r="3.6" fill="#FFFFFF"/>
+      <g transform="rotate(180 50 50)"><path d="{PY_LOGO}" fill="url(#pyy)"/><circle cx="39" cy="14.5" r="3.6" fill="#FFFFFF"/></g>
+    </g>
+  </g>
+  <text class="f-sans" x="30" y="222" font-size="50" font-weight="600" letter-spacing="-2" fill="url(#headg)">Python <tspan class="f-serif" font-size="56" font-weight="400" letter-spacing="-.5" fill="url(#aur)">is home.</tspan></text>
+  <g class="f-sans" font-size="15.5" fill="{t['text2']}">
+    <text x="32" y="260">Where most of my ideas start: scripts,</text>
+    <text x="32" y="283">data analysis, games and AI experiments.</text>
+  </g>
+  {eyebrow(t, 32, 314, "SCRIPTS  ·  DATA  ·  GAMES  ·  AI")}
+
+  <g clip-path="url(#ed)">
+    <rect x="{ex}" y="{ey}" width="{ew}" height="{eh}" fill="{t['bg']}"/>
+    <rect x="{ex}" y="{ey}" width="{ew}" height="40" fill="{t['surface2']}"/>
+    <path d="M{ex} {ey + 40.5}H{ex + ew}" stroke="{t['hair']}" stroke-opacity="{t['hair_op']}"/>
+    <circle cx="{ex + 22}" cy="{ey + 20}" r="5.5" fill="#FF5F57"/><circle cx="{ex + 40}" cy="{ey + 20}" r="5.5" fill="#FEBC2E"/><circle cx="{ex + 58}" cy="{ey + 20}" r="5.5" fill="#28C840"/>
+    <text class="f-mono" x="{ex + ew / 2}" y="{ey + 24.5}" text-anchor="middle" font-size="12" fill="{t['text3']}">ishan.py</text>
+    <text class="f-mono" x="{ex + ew - 20}" y="{ey + 24.5}" text-anchor="end" font-size="11" letter-spacing="1" fill="{t['text3']}">PYTHON 3</text>
+    {''.join(lines)}
+    <rect class="cur" x="{cur_x:.1f}" y="{cur_y - 13}" width="8" height="17" rx="1" fill="{t['accent']}"/>
+  </g>
+  <rect x="{ex + .5}" y="{ey + .5}" width="{ew - 1}" height="{eh - 1}" rx="15.5" stroke="{t['hair']}" stroke-opacity="{t['hair_op'] * 1.4:.2f}"/>"""
+    code_text = " / ".join("".join(x for x, _ in l) for l in CODE if l)
+    return svg(t, W, H, body, "Python is home",
+               "Primary language: Python, where most of my ideas start: scripts, data analysis, games and AI experiments. "
+               f"An editor shows ishan.py: {code_text}", css, defs)
 
 
 # ───────────────────────── project cards ─────────────────────────
@@ -382,7 +432,7 @@ def vis_marks(t):
 
 PROJECTS = [
     ("interviewos", "01", "InterviewOS", ["Adaptive AI technical interviews with a", "polished, real-time candidate experience."], ["TypeScript", "AI", "Web"], vis_interview),
-    ("cricket", "02", "Cricket Score Analysis", ["Exploring cricket scores and match patterns", "through Python data analysis."], ["Python", "Pandas", "Data"], vis_cricket),
+    ("cricket", "02", "Cricket Score Analysis", ["Exploring cricket scores and match patterns", "through Python data analysis."], ["Python", "Data"], vis_cricket),
     ("hand-cricket", "03", "Hand Cricket Game", ["The playground classic, rebuilt as an", "interactive terminal game."], ["Python", "CLI", "Game logic"], vis_hand),
     ("marks", "04", "Student Marks Analyser", ["Turning raw student marks into clear", "performance insights and grade spreads."], ["Python", "Analytics"], vis_marks),
 ]
@@ -486,7 +536,7 @@ if __name__ == "__main__":
     for slug, num, label, plain, italic in SECTIONS:
         made += both(f"section-{slug}", section(num, label, plain, italic))
     made += both("about", bento)
-    made += both("marquee", marquee)
+    made += both("python", python_card)
     for slug, num, title, desc, tags, vis in PROJECTS:
         made += both(f"project-{slug}", project(num, title, desc, tags, vis))
     made += both("footer", footer)
