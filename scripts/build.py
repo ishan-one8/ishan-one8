@@ -5,7 +5,9 @@
 
 The live numbers card is built separately by scripts/stats.py.
 """
+import json
 import math
+import os
 
 from kit import THEMES, both, eyebrow, esc, measure, svg, tile
 
@@ -265,6 +267,144 @@ def bento(t):
                "About: I take ideas from the first sketch to a working product — web experiences, Python tools, data and AI experiments. "
                "Status: open to build. The loop: learn, build, ship, improve. Focus: AI experiments, web products, Python projects. "
                "Daily drivers: Python, TypeScript, JavaScript, React, Next.js, Node.js, Git, GitHub Actions.", css)
+
+
+# ───────────────────────── toolkit orbit + fuel ─────────────────────────
+ICONS = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "icons.json")))
+INNER = ["typescript", "javascript", "react", "nextdotjs"]
+OUTER = ["html5", "css", "nodedotjs", "git", "github", "githubactions"]
+TOOLS = ["python"] + INNER + OUTER
+
+
+def icon_color(t, slug):
+    hexc = "#" + ICONS[slug]["hex"]
+    return t["text"] if hexc in ("#000000", "#181717") else hexc
+
+
+def toolkit(t):
+    H = 440
+    g = 16
+    aw = 790
+    bx, bw = aw + g, W - aw - g
+    cx, cy = 245, 220
+    step = 0.8
+    cycle = step * len(TOOLS)
+    parts = [tile(t, 0, 0, aw, H, glow=(cx, cy, "#3776AB"))]
+
+    # orbit rings
+    for r in (108, 178):
+        parts.append(f'<circle cx="{cx}" cy="{cy}" r="{r}" stroke="{t["hair"]}" stroke-opacity="{t["hair_op"] * 1.8:.2f}" stroke-dasharray="2 6"/>')
+
+    def badge(slug, x, y, i):
+        col = icon_color(t, slug)
+        return (f'<g class="upright">'
+                f'<circle cx="{x:.1f}" cy="{y:.1f}" r="24" fill="{t["surface2"]}" stroke="{t["hair"]}" stroke-opacity="{t["hair_op"] * 1.8:.2f}"/>'
+                f'<circle class="spot" style="animation-delay:{i * step:.1f}s" cx="{x:.1f}" cy="{y:.1f}" r="27" stroke="{t["accent"]}" stroke-width="1.5"/>'
+                f'<path transform="translate({x - 11:.1f} {y - 11:.1f}) scale(.9167)" d="{ICONS[slug]["d"]}" fill="{col}"/></g>')
+
+    for ring, r, cls in ((INNER, 108, "spinA"), (OUTER, 178, "spinB")):
+        items = []
+        for k, slug in enumerate(ring):
+            a = math.radians(-90 + 360 * k / len(ring) + (0 if cls == "spinA" else 30))
+            items.append(badge(slug, cx + r * math.cos(a), cy + r * math.sin(a), TOOLS.index(slug)))
+        parts.append(f'<g class="{cls}">{"".join(items)}</g>')
+
+    # python core
+    parts.append(f"""
+  <circle cx="{cx}" cy="{cy}" r="70" fill="#3776AB" opacity="{t['aur_op'] * .8:.2f}" filter="url(#blurS)"/>
+  <circle class="wave" cx="{cx}" cy="{cy}" r="46" stroke="#3776AB" stroke-width="1.5"/>
+  <circle class="wave" style="animation-delay:-1.5s" cx="{cx}" cy="{cy}" r="46" stroke="#FFD43B" stroke-width="1.5"/>
+  <circle cx="{cx}" cy="{cy}" r="46" fill="{t['surface2']}" stroke="{t['hair']}" stroke-opacity="{t['hair_op'] * 2:.2f}"/>
+  <circle class="spot" cx="{cx}" cy="{cy}" r="50" stroke="{t['accent']}" stroke-width="1.5"/>
+  <g transform="translate({cx - 30} {cy - 30}) scale(.6)">
+    <path d="{PY_LOGO}" fill="url(#pyb)"/><circle cx="39" cy="14.5" r="3.6" fill="#FFFFFF"/>
+    <g transform="rotate(180 50 50)"><path d="{PY_LOGO}" fill="url(#pyy)"/><circle cx="39" cy="14.5" r="3.6" fill="#FFFFFF"/></g>
+  </g>""")
+
+    # copy + tool list
+    tx = 470
+    parts.append(eyebrow(t, tx, 56, f"TOOLKIT  ·  {len(TOOLS)} TOOLS"))
+    parts.append(f'<text class="f-sans" x="{tx - 2}" y="104" font-size="34" font-weight="600" letter-spacing="-1.2" fill="{t["text"]}">Python at the <tspan class="f-serif" font-size="40" font-weight="400" letter-spacing="0" fill="url(#aur)">core.</tspan></text>')
+    parts.append(f'<g class="f-sans" font-size="14.5" fill="{t["text2"]}"><text x="{tx}" y="134">Everything else orbits around it, from</text><text x="{tx}" y="155">the web stack to shipping with Git.</text></g>')
+    cw_, ch_ = 141, 32
+    for i, slug in enumerate(TOOLS):
+        x = tx + (i % 2) * (cw_ + 8)
+        y = 180 + (i // 2) * (ch_ + 8)
+        name = ICONS[slug]["title"].replace("HTML5", "HTML")
+        parts.append(f"""
+  <rect x="{x}" y="{y}" width="{cw_}" height="{ch_}" rx="10" fill="{t['surface2']}" stroke="{t['hair']}" stroke-opacity="{t['hair_op'] * 1.5:.2f}"/>
+  <rect class="spot" style="animation-delay:{i * step:.1f}s" x="{x}" y="{y}" width="{cw_}" height="{ch_}" rx="10" fill="{t['accent']}" fill-opacity=".08" stroke="{t['accent']}" stroke-width="1.2"/>
+  <path transform="translate({x + 11} {y + 9}) scale(.5833)" d="{ICONS[slug]['d']}" fill="{icon_color(t, slug)}"/>
+  <text class="f-sans" x="{x + 32}" y="{y + 20.5}" font-size="13" font-weight="500" fill="{t['text']}">{esc(name)}</text>""")
+
+    # fuel: the can
+    ccx, top, cw2, chh = bx + bw / 2, 78, 104, 236
+    l, r_ = ccx - cw2 / 2, ccx + cw2 / 2
+    bubbles = "".join(
+        f'<circle class="bub" style="animation-delay:{-k * .7:.1f}s;animation-duration:{4 + (k % 3)}s" cx="{ccx + dx}" cy="{top + chh + 10}" r="{rr}" '
+        f'stroke="{t["text"]}" stroke-opacity=".35" fill="{t["text"]}" fill-opacity=".06"/>'
+        for k, (dx, rr) in enumerate([(-86, 4), (-70, 2.5), (-92, 6), (74, 3), (90, 5), (66, 2), (-60, 3.5), (84, 2.5)]))
+    parts.append(tile(t, bx, 0, bw, H, glow=(ccx, top + 120, "#DB0A40")))
+    parts.append(f"""
+  <g clip-path="url(#tc{int(bx)}_0)">
+    <circle cx="{ccx - 40}" cy="{top + 150}" r="90" fill="#1E3A8A" opacity="{t['aur_op'] * .7:.2f}" filter="url(#blur)"/>
+    {bubbles}
+  </g>
+  {eyebrow(t, bx + 26, 56, "FUEL")}
+  <ellipse cx="{ccx}" cy="{top + chh + 18}" rx="64" ry="9" fill="#000" opacity="{.5 if t is THEMES['dark'] else .14}" filter="url(#blurS)"/>
+  <g class="can">
+    <g clip-path="url(#canc)">
+      <rect x="{l}" y="{top}" width="{cw2}" height="{chh}" fill="url(#canBlue)"/>
+      <path d="M{l} {top}H{r_}L{l} {top + chh * .78}Z" fill="url(#checker)"/>
+      <rect x="{ccx - 44}" y="{top + 88}" width="88" height="62" rx="8" fill="#F4F6FA" opacity=".96"/>
+      <path transform="translate({ccx - 38} {top + 81}) scale(3.1667)" d="{ICONS['redbull']['d']}" fill="#DB0A40"/>
+      <rect x="{l}" y="{top}" width="{cw2}" height="{chh}" fill="url(#canShade)"/>
+      <g fill="#FFFFFF" opacity=".55">
+        <ellipse cx="{l + 20}" cy="{top + 60}" rx="1.6" ry="2.4"/><ellipse cx="{l + 76}" cy="{top + 170}" rx="1.3" ry="2"/>
+        <ellipse cx="{l + 30}" cy="{top + 190}" rx="1.8" ry="2.8"/><ellipse cx="{l + 84}" cy="{top + 46}" rx="1.2" ry="1.9"/>
+        <ellipse cx="{l + 58}" cy="{top + 205}" rx="1.4" ry="2.2"/>
+      </g>
+    </g>
+    <ellipse cx="{ccx}" cy="{top + 2}" rx="{cw2 / 2 - 2}" ry="9" fill="url(#lid)" stroke="#9AA3B2" stroke-width="1"/>
+    <ellipse cx="{ccx}" cy="{top + 2}" rx="{cw2 / 2 - 12}" ry="5.5" fill="none" stroke="#8B93A1" stroke-opacity=".8"/>
+    <rect x="{ccx - 13}" y="{top - 3}" width="26" height="8" rx="4" fill="#C9CFD8" stroke="#8B93A1" stroke-width=".8"/>
+  </g>
+  <text class="f-sans" x="{ccx}" y="{H - 52}" text-anchor="middle" font-size="25" font-weight="600" letter-spacing="-.8" fill="{t['text']}">Fueled by <tspan class="f-serif" font-size="30" font-weight="400" letter-spacing="0" fill="#DB0A40">Red Bull.</tspan></text>
+  {eyebrow(t, ccx, H - 26, "LATE NIGHTS  ·  BIG IDEAS", "middle")}""")
+
+    defs = f"""
+    <linearGradient id="pyb" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5A9FD4"/><stop offset="1" stop-color="#306998"/></linearGradient>
+    <linearGradient id="pyy" x1="1" y1="1" x2="0" y2="0"><stop stop-color="#FFE873"/><stop offset="1" stop-color="#FFD43B"/></linearGradient>
+    <clipPath id="canc"><path d="M{l + 6} {top}H{r_ - 6}Q{r_} {top} {r_} {top + 14}V{top + chh - 12}Q{r_} {top + chh} {r_ - 8} {top + chh + 2}Q{ccx} {top + chh + 9} {l + 8} {top + chh + 2}Q{l} {top + chh} {l} {top + chh - 12}V{top + 14}Q{l} {top} {l + 6} {top}Z"/></clipPath>
+    <linearGradient id="canBlue" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#1D3E96"/><stop offset="1" stop-color="#0B1E5B"/></linearGradient>
+    <pattern id="checker" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(45 {ccx} {top})">
+      <rect width="16" height="16" fill="#D7DCE5"/><rect width="8" height="8" fill="#1D3E96"/><rect x="8" y="8" width="8" height="8" fill="#1D3E96"/>
+    </pattern>
+    <linearGradient id="canShade" x1="0" x2="1">
+      <stop stop-color="#000" stop-opacity=".35"/><stop offset=".18" stop-color="#FFF" stop-opacity=".45"/>
+      <stop offset=".32" stop-color="#FFF" stop-opacity="0"/><stop offset=".75" stop-color="#000" stop-opacity=".05"/>
+      <stop offset="1" stop-color="#000" stop-opacity=".45"/>
+    </linearGradient>
+    <linearGradient id="lid" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#EEF1F5"/><stop offset="1" stop-color="#A9B1BE"/></linearGradient>"""
+    css = f"""
+    .spinA{{transform-origin:{cx}px {cy}px;animation:spin 40s linear infinite;}}
+    .spinB{{transform-origin:{cx}px {cy}px;animation:spin 64s linear infinite reverse;}}
+    .spinA .upright{{transform-box:fill-box;transform-origin:center;animation:spin 40s linear infinite reverse;}}
+    .spinB .upright{{transform-box:fill-box;transform-origin:center;animation:spin 64s linear infinite;}}
+    @keyframes spin{{to{{transform:rotate(360deg);}}}}
+    .spot{{opacity:0;animation:spot {cycle:.1f}s ease-in-out infinite;}}
+    @keyframes spot{{0%{{opacity:0;}}2%,{100 / len(TOOLS) - 1:.1f}%{{opacity:1;}}{100 / len(TOOLS) + 2:.1f}%,100%{{opacity:0;}}}}
+    .wave{{transform-box:fill-box;transform-origin:center;animation:wave 3s ease-out infinite;}}
+    @keyframes wave{{from{{transform:scale(1);opacity:.7;}}to{{transform:scale(1.9);opacity:0;}}}}
+    .can{{transform-box:fill-box;transform-origin:center;animation:can 6s ease-in-out infinite;}}
+    @keyframes can{{0%,100%{{transform:translateY(0) rotate(-3deg);}}50%{{transform:translateY(-10px) rotate(3deg);}}}}
+    .bub{{animation:bub 4s ease-in infinite;}}
+    @keyframes bub{{0%{{transform:translateY(0);opacity:0;}}15%{{opacity:1;}}100%{{transform:translateY(-250px);opacity:0;}}}}
+    @media (prefers-reduced-motion: reduce){{.spot{{opacity:0;}}}}"""
+    names = ", ".join(ICONS[s_]["title"] for s_ in TOOLS)
+    return svg(t, W, H, "".join(parts), "Toolkit",
+               f"Toolkit of {len(TOOLS)} tools with Python at the core and the rest orbiting around it: {names}. "
+               "Beside it, a floating Red Bull can: fueled by Red Bull — late nights, big ideas.", css, defs)
 
 
 # ───────────────────────── python showcase ─────────────────────────
@@ -536,6 +676,7 @@ if __name__ == "__main__":
     for slug, num, label, plain, italic in SECTIONS:
         made += both(f"section-{slug}", section(num, label, plain, italic))
     made += both("about", bento)
+    made += both("toolkit", toolkit)
     made += both("python", python_card)
     for slug, num, title, desc, tags, vis in PROJECTS:
         made += both(f"project-{slug}", project(num, title, desc, tags, vis))
