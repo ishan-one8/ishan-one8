@@ -281,6 +281,21 @@ def icon_color(t, slug):
     return t["text"] if hexc in ("#000000", "#181717") else hexc
 
 
+RB_OVERLAP = 3.5
+RB_W = 2 * ICONS["redbull_bull"]["w"] - RB_OVERLAP
+
+
+def redbull_logo():
+    """The full Red Bull mark: two bulls charging at each other over a golden sun.
+
+    Centred on (0, 0) in bull units; the sun sits behind the clash point."""
+    bull, w, h = ICONS["redbull_bull"]["d"], ICONS["redbull_bull"]["w"], ICONS["redbull_bull"]["h"]
+    return (f'<g transform="translate({-RB_W / 2:.3f} {-h / 2:.3f})">'
+            f'<circle cx="{RB_W / 2:.3f}" cy="3" r="5" fill="#FFCC00"/>'
+            f'<path d="{bull}" fill="#DB0A40"/>'
+            f'<g transform="translate({RB_W:.3f} 0) scale(-1 1)"><path d="{bull}" fill="#DB0A40"/></g></g>')
+
+
 def toolkit(t):
     H = 440
     g = 16
@@ -338,7 +353,8 @@ def toolkit(t):
   <text class="f-sans" x="{x + 32}" y="{y + 20.5}" font-size="13" font-weight="500" fill="{t['text']}">{esc(name)}</text>""")
 
     # fuel: the can
-    ccx, top, cw2, chh = bx + bw / 2, 78, 104, 236
+    ccx, top, cw2, chh = bx + bw / 2, 74, 112, 246
+    lscale = (cw2 - 16) / RB_W
     l, r_ = ccx - cw2 / 2, ccx + cw2 / 2
     bubbles = "".join(
         f'<circle class="bub" style="animation-delay:{-k * .7:.1f}s;animation-duration:{4 + (k % 3)}s" cx="{ccx + dx}" cy="{top + chh + 10}" r="{rr}" '
@@ -356,8 +372,11 @@ def toolkit(t):
     <g clip-path="url(#canc)">
       <rect x="{l}" y="{top}" width="{cw2}" height="{chh}" fill="url(#canBlue)"/>
       <path d="M{l} {top}H{r_}L{l} {top + chh * .78}Z" fill="url(#checker)"/>
-      <rect x="{ccx - 44}" y="{top + 88}" width="88" height="62" rx="8" fill="#F4F6FA" opacity=".96"/>
-      <path transform="translate({ccx - 38} {top + 81}) scale(3.1667)" d="{ICONS['redbull']['d']}" fill="#DB0A40"/>
+      <rect x="{l}" y="{top + 74}" width="{cw2}" height="104" fill="url(#label)"/>
+      <path d="M{l} {top + 74.5}H{r_}M{l} {top + 177.5}H{r_}" stroke="#1D3E96" stroke-opacity=".5"/>
+      <g transform="translate({ccx} {top + 112}) scale({lscale:.3f})">{redbull_logo()}</g>
+      <text class="f-sans" x="{ccx}" y="{top + 156}" text-anchor="middle" font-size="17" font-weight="800" letter-spacing="-.4" fill="#DB0A40">Red Bull</text>
+      <text class="f-sans" x="{ccx}" y="{top + 170}" text-anchor="middle" font-size="6.5" font-weight="700" letter-spacing="1.6" fill="#1D3E96">ENERGY DRINK</text>
       <rect x="{l}" y="{top}" width="{cw2}" height="{chh}" fill="url(#canShade)"/>
       <g fill="#FFFFFF" opacity=".55">
         <ellipse cx="{l + 20}" cy="{top + 60}" rx="1.6" ry="2.4"/><ellipse cx="{l + 76}" cy="{top + 170}" rx="1.3" ry="2"/>
@@ -385,6 +404,7 @@ def toolkit(t):
       <stop offset=".32" stop-color="#FFF" stop-opacity="0"/><stop offset=".75" stop-color="#000" stop-opacity=".05"/>
       <stop offset="1" stop-color="#000" stop-opacity=".45"/>
     </linearGradient>
+    <linearGradient id="label" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#F1F3F7"/><stop offset="1" stop-color="#D5DAE3"/></linearGradient>
     <linearGradient id="lid" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#EEF1F5"/><stop offset="1" stop-color="#A9B1BE"/></linearGradient>"""
     css = f"""
     .spinA{{transform-origin:{cx}px {cy}px;animation:spin 40s linear infinite;}}
@@ -400,7 +420,7 @@ def toolkit(t):
     @keyframes can{{0%,100%{{transform:translateY(0) rotate(-3deg);}}50%{{transform:translateY(-10px) rotate(3deg);}}}}
     .bub{{animation:bub 4s ease-in infinite;}}
     @keyframes bub{{0%{{transform:translateY(0);opacity:0;}}15%{{opacity:1;}}100%{{transform:translateY(-250px);opacity:0;}}}}
-    @media (prefers-reduced-motion: reduce){{.spot{{opacity:0;}}}}"""
+    @media (prefers-reduced-motion: reduce){{.spot,.bub{{opacity:0;}}}}"""
     names = ", ".join(ICONS[s_]["title"] for s_ in TOOLS)
     return svg(t, W, H, "".join(parts), "Toolkit",
                f"Toolkit of {len(TOOLS)} tools with Python at the core and the rest orbiting around it: {names}. "
