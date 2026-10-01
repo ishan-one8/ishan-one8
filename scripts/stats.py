@@ -9,7 +9,7 @@ import json
 import os
 import urllib.request
 
-from kit import both, eyebrow, esc, measure, svg, tile
+from kit import F1, eyebrow, esc, measure, svg, tile, write
 
 USER = os.environ.get("GH_USER", "ishan-one8")
 W = 1200
@@ -109,7 +109,7 @@ def card(data):
 
         # languages
         parts.append(tile(t, 0, y2, bw, bh))
-        parts.append(eyebrow(t, 26, y2 + 40, "TOP LANGUAGES"))
+        parts.append(eyebrow(t, 26, y2 + 40, "TYRE STRATEGY  ·  TOP LANGUAGES"))
         top = data["langs"][:5]
         rest = sum(v for _, v in data["langs"][5:])
         if rest:
@@ -137,7 +137,7 @@ def card(data):
         # activity
         ax0 = bw + g
         parts.append(tile(t, ax0, y2, bw, bh, glow=(ax0 + bw, y2 + bh, t["a2"])))
-        parts.append(eyebrow(t, ax0 + 26, y2 + 40, "ACTIVITY  ·  LAST 52 WEEKS"))
+        parts.append(eyebrow(t, ax0 + 26, y2 + 40, "SPEED TRACE  ·  LAST 52 WEEKS"))
         weeks = data["weeks"] or [0]
         peak = max(weeks) or 1
         px0, px1, py0, py1 = ax0 + 26, ax0 + bw - 26, y2 + 76, y2 + bh - 34
@@ -199,8 +199,9 @@ def heatmap(data):
         cur, longest, best = streaks(days)
         peak = max((c for _, _, c in days), default=0) or 1
         dark = t["bg"] == "#08080A"
-        scale = (["#1E1B4B", "#3730A3", "#6366F1", "#A5B4FC"] if dark
-                 else ["#C7D2FE", "#A5B4FC", "#6366F1", "#4338CA"])
+        scale = (["#2F5FBF", "#8E2A9E", "#DB0A40", "#FFCC00"] if t.get("red") else
+                 ["#1E1B4B", "#3730A3", "#6366F1", "#A5B4FC"] if dark else
+                 ["#C7D2FE", "#A5B4FC", "#6366F1", "#4338CA"])
 
         def level(c):
             if c == 0:
@@ -244,7 +245,7 @@ def heatmap(data):
         total = sum(c for _, _, c in days)
         body = f"""
   {tile(t, 0, 0, W, H, glow=(W, 0, t['a1']))}
-  {eyebrow(t, 32, 44, "CONTRIBUTIONS")}
+  {eyebrow(t, 32, 44, "SEASON CALENDAR  ·  CONTRIBUTIONS")}
   <text class="f-sans" x="32" y="80" font-size="30" font-weight="600" letter-spacing="-1" fill="url(#headg)">{total:,}<tspan class="f-serif" font-size="30" font-weight="400" letter-spacing="0" fill="{t['text2']}"> in the last year</tspan></text>
   {''.join(ks)}
   {''.join(months)}
@@ -263,5 +264,5 @@ def heatmap(data):
 if __name__ == "__main__":
     data = fetch()
     print(json.dumps({k: v for k, v in data.items() if k not in ("weeks", "calendar")}, indent=1))
-    both("stats", card(data))
-    both("activity", heatmap(data))
+    write("stats.svg", card(data)(F1))
+    write("activity.svg", heatmap(data)(F1))

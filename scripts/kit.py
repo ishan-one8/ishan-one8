@@ -17,9 +17,14 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 ASSETS = os.path.join(ROOT, "assets")
 FONTS = {
-    "sans": ("inter.woff2", "IK Sans", "normal", "300 800"),
-    "serif": ("serif-italic.woff2", "IK Serif", "italic", "400"),
-    "mono": ("mono.woff2", "IK Mono", "normal", "400 600"),
+    "sans": [("inter.woff2", "IK Sans", "normal", "300 800")],
+    "serif": [("serif-italic.woff2", "IK Serif", "italic", "400")],
+    "mono": [("mono.woff2", "IK Mono", "normal", "400 600")],
+    "race": [("titillium-400.woff2", "IK Race", "normal", "400"),
+             ("titillium-600.woff2", "IK Race", "normal", "600"),
+             ("titillium-700.woff2", "IK Race", "normal", "700"),
+             ("titillium-900.woff2", "IK Race", "normal", "900"),
+             ("titillium-700i.woff2", "IK Race", "italic", "700")],
 }
 
 THEMES = {
@@ -30,7 +35,7 @@ THEMES = {
         a1="#6366F1", a2="#A855F7", a3="#06B6D4", aur_op=0.42,
         accent="#A5B4FC", good="#34D399", grain=0.07,
         head1="#FFFFFF", head2="#9C9CA6", invert_bg="#FAFAFA", invert_fg="#09090B",
-        dot_op=0.10,
+        dot_op=0.10, dark=True,
     ),
     "light": dict(
         bg="#FFFFFF", bg2="#F5F5F8", surface="#FFFFFF", surface2="#F4F4F6",
@@ -44,18 +49,38 @@ THEMES = {
 }
 
 
+# Red Bull Racing edition: one self-contained navy look that sits well on
+# both of GitHub's themes.
+F1 = dict(
+    bg="#060B1E", bg2="#0B1433", surface="#0C1532", surface2="#13214D",
+    text="#FFFFFF", text2="#B7C1DD", text3="#7D89AD",
+    hair="#FFFFFF", hair_op=0.10, hi_op=0.20,
+    a1="#3671C6", a2="#DB0A40", a3="#FFCC00", aur_op=0.45,
+    accent="#FFCC00", good="#22C55E", grain=0.07,
+    head1="#FFFFFF", head2="#C3CCE6", invert_bg="#DB0A40", invert_fg="#FFFFFF",
+    dot_op=0.07, dark=True,
+    red="#DB0A40", yellow="#FFCC00", blue="#3671C6", navy="#1B2A5C",
+    purple="#A855F7", green="#22C55E",
+)
+
+
 def esc(s):
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
 @lru_cache(None)
-def _font(key):
-    return TTFont(os.path.join(HERE, "fonts", FONTS[key][0]))
+def _font(file):
+    return TTFont(os.path.join(HERE, "fonts", file))
+
+
+def _face(font, weight):
+    faces = [f for f in FONTS[font] if f[2] == "normal"] or FONTS[font]
+    return min(faces, key=lambda f: abs(int(f[3].split()[0]) - weight) if " " not in f[3] else 0)[0]
 
 
 def measure(text, size, font="sans", spacing=0.0, weight=400):
     """Width of `text` in px, from the font's own advance widths."""
-    f = _font(font)
+    f = _font(_face(font, weight))
     cmap, hmtx, upm = f.getBestCmap(), f["hmtx"], f["head"].unitsPerEm
     units = sum(hmtx[cmap.get(ord(c), cmap[ord("n")])][0] for c in text)
     w = units / upm * size + spacing * max(len(text) - 1, 0)
@@ -64,8 +89,8 @@ def measure(text, size, font="sans", spacing=0.0, weight=400):
     return w
 
 
-def _subset(key, chars):
-    font = TTFont(os.path.join(HERE, "fonts", FONTS[key][0]))
+def _subset(file, chars):
+    font = TTFont(os.path.join(HERE, "fonts", file))
     opts = Options()
     opts.flavor = "woff2"
     opts.layout_features = ["kern", "liga", "calt", "ss01", "cv11"]
@@ -84,17 +109,22 @@ def _font_css(doc):
     chars = set("".join(re.findall(r">([^<]+)<", body))) | set(" .")
     chars = {c for c in chars if c not in "\n\r\t"}
     css = []
-    for key, (_, family, style, weight) in FONTS.items():
-        if f"f-{key}" in doc:
+    for key, faces in FONTS.items():
+        if f"f-{key}" not in doc:
+            continue
+        for file, family, style, weight in faces:
+            if key == "race" and style == "italic" and "font-style=\"italic\"" not in doc:
+                continue
             css.append(
                 f"@font-face{{font-family:'{family}';font-style:{style};font-weight:{weight};"
-                f"src:url(data:font/woff2;base64,{_subset(key, chars)}) format('woff2');}}")
+                f"src:url(data:font/woff2;base64,{_subset(file, chars)}) format('woff2');}}")
     return "".join(css)
 
 
 BASE_CSS = """
 .f-sans{font-family:'IK Sans',Inter,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-feature-settings:'ss01','cv11';}
 .f-serif{font-family:'IK Serif','Instrument Serif',Georgia,serif;font-style:italic;}
+.f-race{font-family:'IK Race','Titillium Web','Arial Narrow',Arial,sans-serif;}
 .f-mono{font-family:'IK Mono','JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;}}
 """
@@ -114,7 +144,7 @@ def common_defs(t, w, h):
       <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" stitchTiles="stitch"/>
       <feColorMatrix values="0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 {t['grain'] * 2.4:.3f} 0"/>
     </filter>
-    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity="{0.0 if t is THEMES['dark'] else 0.06}"/></filter>"""
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity="{0.0 if t.get('dark') else 0.06}"/></filter>"""
 
 
 def tile(t, x, y, w, h, r=22, glow=None):
@@ -125,7 +155,7 @@ def tile(t, x, y, w, h, r=22, glow=None):
         g = f'<g clip-path="url(#tc{int(x)}_{int(y)})"><circle cx="{cx}" cy="{cy}" r="120" fill="{col}" opacity="{t["aur_op"] * .55:.2f}" filter="url(#blur)"/></g>'
     return f"""
   <clipPath id="tc{int(x)}_{int(y)}"><rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{r}"/></clipPath>
-  <rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{r}" fill="url(#surf)"{'' if t is THEMES['dark'] else ' filter="url(#shadow)"'}/>
+  <rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{r}" fill="url(#surf)"{'' if t.get('dark') else ' filter="url(#shadow)"'}/>
   {g}
   <rect x="{x + .5}" y="{y + .5}" width="{w - 1}" height="{h - 1}" rx="{r - .5}" fill="none" stroke="{t['hair']}" stroke-opacity="{t['hair_op']}"/>
   <path d="M{x + r} {y + .6}H{x + w - r}" stroke="url(#hi)"/>"""
