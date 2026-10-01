@@ -1,74 +1,65 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/hero.svg" alt="Ishan Kumar — Building What's Next, an animated futuristic banner" width="100%" />
+<img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/hero.svg" alt="Ishan Kumar — Building What's Next. An animated holographic banner with a neon grid, a spinning reactor core and a boot sequence." width="100%" />
 
 <a href="https://github.com/ishan-one8">
-  <img src="https://readme-typing-svg.demolab.com?font=Space+Grotesk&weight=700&size=28&duration=2500&pause=900&color=58A6FF&center=true&vCenter=true&width=750&height=52&lines=I+build+ideas+into+software.;Code.+Create.+Ship.+Repeat.;Always+learning%2C+always+building." alt="Animated text: I build ideas into software" />
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=24&duration=2600&pause=900&color=00E5FF&center=true&vCenter=true&width=800&height=50&lines=%3E+I+build+ideas+into+software_;%3E+Code.+Create.+Ship.+Repeat._;%3E+Exploring+AI%2C+one+project+at+a+time_;%3E+Always+learning%2C+always+building_" alt="Typing animation: I build ideas into software" />
 </a>
 
-### Developer · Builder · Product thinker
+<br />
 
-<p>Building practical software, exploring AI, and learning by shipping real projects.</p>
+<a href="https://github.com/ishan-one8?tab=repositories"><img alt="Explore my work" src="https://img.shields.io/badge/EXPLORE_MY_WORK-0A1030?style=for-the-badge&logo=github&logoColor=00E5FF&labelColor=04060F" /></a>
+<a href="https://www.instagram.com/ishan_one8/"><img alt="Connect on Instagram" src="https://img.shields.io/badge/LET'S_CONNECT-0A1030?style=for-the-badge&logo=instagram&logoColor=FF3DCB&labelColor=04060F" /></a>
+<a href="https://github.com/ishan-one8?tab=followers"><img alt="Live GitHub follower count" src="https://img.shields.io/github/followers/ishan-one8?style=for-the-badge&label=FOLLOWERS&logo=github&logoColor=8B5CFF&labelColor=04060F&color=0A1030" /></a>
+<img alt="Profile views" src="https://komarev.com/ghpvc/?username=ishan-one8&label=PROFILE%20VIEWS&color=8B5CFF&style=for-the-badge" />
 
-<a href="https://github.com/ishan-one8?tab=repositories"><img alt="Explore repositories" src="https://img.shields.io/badge/Explore_my_work-161B22?style=for-the-badge&logo=github&logoColor=white" /></a>
-<a href="https://www.instagram.com/ishan_one8/"><img alt="Connect on Instagram" src="https://img.shields.io/badge/Let's_connect-E4405F?style=for-the-badge&logo=instagram&logoColor=white" /></a>
-<a href="https://github.com/ishan-one8?tab=followers"><img alt="Live GitHub follower count" src="https://img.shields.io/github/followers/ishan-one8?style=for-the-badge&label=FOLLOWERS&color=7B7DFC&logo=github" /></a>
+</div>
+
+<img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/divider.svg" alt="" width="100%" />
+
+## ◈ System status
+
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/status.svg" alt="ishan@one8 system status — role: Developer, Builder, Product thinker · craft: Web products, Python projects, AI experiments · stack: Python, TypeScript, React, Next.js, Node.js · loop: Learn → Build → Ship → Improve · current: Turning ideas into useful software" width="100%" />
+
+</div>
+
+I enjoy taking an idea from the first sketch to a working product — from interactive web experiences to Python tools, data exploration and AI experiments.
+
+## ◈ Project archive
+
+<div align="center">
+
+<a href="https://github.com/ishan-one8/interviewos-vicodathon"><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/project-interviewos.svg" alt="InterviewOS — adaptive AI technical interviews · TypeScript, AI, Web" width="49%" /></a>
+<a href="https://github.com/ishan-one8/Cricket-Score-Analysis"><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/project-cricket-analysis.svg" alt="Cricket Score Analysis — Python data analysis of cricket scores · Python, Data" width="49%" /></a>
+<a href="https://github.com/ishan-one8/Hand-Cricket-Game"><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/project-hand-cricket.svg" alt="Hand Cricket Game — an interactive terminal game · Python, Game logic" width="49%" /></a>
+<a href="https://github.com/ishan-one8/Student-Marks-Analyser"><img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/project-marks-analyser.svg" alt="Student Marks Analyser — performance insights from student marks · Python, Analytics" width="49%" /></a>
+
+<a href="https://github.com/ishan-one8?tab=repositories"><b>&gt; ls ~/repositories --all →</b></a>
+
+</div>
+
+## ◈ Tech arsenal
+
+<div align="center">
+
+<img src="https://skillicons.dev/icons?i=python,js,ts,html,css,react,nextjs,nodejs,git,github,githubactions,vscode&theme=dark&perline=12" alt="Python, JavaScript, TypeScript, HTML, CSS, React, Next.js, Node.js, Git, GitHub, GitHub Actions and VS Code" />
+
+</div>
+
+## ◈ Telemetry
+
+<div align="center">
+
+<img src="https://streak-stats.demolab.com?user=ishan-one8&hide_border=true&background=04060F&ring=8B5CFF&fire=FF3DCB&currStreakNum=00E5FF&currStreakLabel=00E5FF&sideNums=F2FBFF&sideLabels=7F96BE&dates=5E7AA0&stroke=1A2348" alt="GitHub contribution streak for ishan-one8" width="100%" />
 
 <br /><br />
-
-<img alt="Python" src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-<img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" />
-<img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" />
-<img alt="React" src="https://img.shields.io/badge/React-149ECA?style=flat-square&logo=react&logoColor=white" />
-<img alt="Next.js" src="https://img.shields.io/badge/Next.js-111111?style=flat-square&logo=nextdotjs&logoColor=white" />
-
-</div>
-
----
-
-## ✦ What I do
-
-```ts
-const ishan = {
-  craft: ["Web products", "Python projects", "AI experiments"],
-  approach: "Learn → Build → Ship → Improve",
-  currently: "Turning ideas into useful software",
-};
-```
-
-I enjoy taking an idea from the first sketch to a working product. My projects range from interactive web experiences to Python tools and data exploration.
-
-## ✦ Selected projects
-
-| Project | What it explores | Stack |
-| :--- | :--- | :--- |
-| [**InterviewOS**](https://github.com/ishan-one8/interviewos-vicodathon) | Adaptive AI technical interviews and a polished candidate experience | TypeScript · AI · Web |
-| [**Cricket Score Analysis**](https://github.com/ishan-one8/Cricket-Score-Analysis) | Exploring cricket scores through Python data analysis | Python · Data |
-| [**Hand Cricket Game**](https://github.com/ishan-one8/Hand-Cricket-Game) | A terminal game with interactive cricket logic | Python · Game logic |
-| [**Student Marks Analyser**](https://github.com/ishan-one8/Student-Marks-Analyser) | Analysing student performance from marks | Python · Analytics |
-
-<div align="center">
-
-<a href="https://github.com/ishan-one8?tab=repositories"><b>See all repositories →</b></a>
-
-</div>
-
-## ✦ Toolbox
-
-<div align="center">
-
-<img src="https://skillicons.dev/icons?i=python,js,ts,html,css,react,nextjs,nodejs,git,github,githubactions,vscode&theme=dark" alt="Python, JavaScript, TypeScript, HTML, CSS, React, Next.js, Node.js, Git, GitHub, GitHub Actions, and VS Code" />
-
-</div>
-
-## ✦ Contributions in motion
-
-<div align="center">
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/profile-3d-contrib/profile-night-rainbow.svg" />
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/profile-3d-contrib/profile-season-animate.svg" />
-  <img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/profile-3d-contrib/profile-season-animate.svg" alt="Animated 3D GitHub contribution calendar" width="100%" />
+  <img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/profile-3d-contrib/profile-night-rainbow.svg" alt="Animated 3D GitHub contribution calendar" width="100%" />
 </picture>
 
 <br />
@@ -76,22 +67,20 @@ I enjoy taking an idea from the first sketch to a working product. My projects r
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/gh-pages/github-snake-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ishan-one8/ishan-one8/gh-pages/github-snake.svg" />
-  <img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/gh-pages/github-snake.svg" alt="Animated snake moving through Ishan's GitHub contribution graph" width="100%" />
+  <img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/gh-pages/github-snake-dark.svg" alt="Animated snake moving through Ishan's GitHub contribution graph" width="100%" />
 </picture>
 
 </div>
 
----
+<img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/divider.svg" alt="" width="100%" />
 
 <div align="center">
 
-### Have an idea? Let's build something useful.
-
-<a href="https://github.com/ishan-one8"><img src="https://img.shields.io/badge/GitHub-ishan--one8-161B22?style=for-the-badge&logo=github&logoColor=white" alt="Ishan on GitHub" /></a>
-<a href="https://www.instagram.com/ishan_one8/"><img src="https://img.shields.io/badge/Instagram-ishan__one8-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Ishan on Instagram" /></a>
+<img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/footer.svg" alt="Have an idea? Let's build something useful. End of transmission." width="100%" />
 
 <br /><br />
 
-<sub>Build → Ship → Learn → Improve</sub>
+<a href="https://github.com/ishan-one8"><img src="https://img.shields.io/badge/GITHUB-ishan--one8-0A1030?style=for-the-badge&logo=github&logoColor=00E5FF&labelColor=04060F" alt="Ishan on GitHub" /></a>
+<a href="https://www.instagram.com/ishan_one8/"><img src="https://img.shields.io/badge/INSTAGRAM-ishan__one8-0A1030?style=for-the-badge&logo=instagram&logoColor=FF3DCB&labelColor=04060F" alt="Ishan on Instagram" /></a>
 
 </div>

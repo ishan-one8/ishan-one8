@@ -1,73 +1,186 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
   <title id="title">Ishan Kumar — building what's next</title>
-  <desc id="desc">A futuristic navy banner with animated neon orbit, scanning light, and a product builder message.</desc>
+  <desc id="desc">A futuristic holographic banner: a starfield over a moving neon grid, a spinning reactor core, a glitching name and a boot sequence that ends with "building what's next".</desc>
   <defs>
-    <linearGradient id="surface" x2="1" y2="1">
-      <stop stop-color="#071524"/>
-      <stop offset=".52" stop-color="#0B1020"/>
-      <stop offset="1" stop-color="#17102F"/>
+    <linearGradient id="space" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#03050D"/>
+      <stop offset=".55" stop-color="#070B1F"/>
+      <stop offset="1" stop-color="#140829"/>
     </linearGradient>
-    <linearGradient id="accent" x2="1" y2="0">
-      <stop stop-color="#55D6FF"/>
-      <stop offset=".52" stop-color="#9D8BFF"/>
-      <stop offset="1" stop-color="#FF6BB4"/>
+    <linearGradient id="neon" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#00E5FF"/>
+      <stop offset=".5" stop-color="#8B5CFF"/>
+      <stop offset="1" stop-color="#FF3DCB"/>
     </linearGradient>
-    <radialGradient id="glow">
-      <stop stop-color="#6BE4FF" stop-opacity=".55"/>
-      <stop offset="1" stop-color="#6BE4FF" stop-opacity="0"/>
+    <linearGradient id="floorFade" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#03050D" stop-opacity="1"/>
+      <stop offset=".35" stop-color="#03050D" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="coreGlow">
+      <stop stop-color="#00E5FF" stop-opacity=".75"/>
+      <stop offset=".45" stop-color="#8B5CFF" stop-opacity=".25"/>
+      <stop offset="1" stop-color="#8B5CFF" stop-opacity="0"/>
     </radialGradient>
-    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
-      <path d="M42 0H0V42" fill="none" stroke="#80A7D0" stroke-opacity=".08"/>
+    <radialGradient id="nebula" cx=".82" cy=".35" r=".6">
+      <stop stop-color="#8B5CFF" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#8B5CFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="nebula2" cx=".12" cy=".9" r=".5">
+      <stop stop-color="#00E5FF" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="1" fill="#FFFFFF" fill-opacity=".025"/>
     </pattern>
-    <clipPath id="clip"><rect x="1" y="1" width="1198" height="358" rx="25"/></clipPath>
-    <filter id="blur"><feGaussianBlur stdDeviation="17"/></filter>
+    <clipPath id="frame"><rect x="1" y="1" width="1198" height="418" rx="22"/></clipPath>
+    <clipPath id="floorClip"><rect x="0" y="300" width="1200" height="120"/></clipPath>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18"/></filter>
+    <filter id="bloom" x="-20%" y="-50%" width="140%" height="200%">
+      <feGaussianBlur stdDeviation="3.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
   <style>
-    .scan { animation: scan 8s ease-in-out infinite alternate; }
-    .orbit { transform-origin: 991px 180px; animation: spin 24s linear infinite; }
-    .orbit-reverse { transform-origin: 991px 180px; animation: spin 32s linear infinite reverse; }
-    .float { animation: float 4s ease-in-out infinite; }
-    .pulse { animation: pulse 2.8s ease-in-out infinite; }
-    .dash { stroke-dasharray: 8 15; animation: march 9s linear infinite; }
-    @keyframes scan { from { transform: translateX(-140px); opacity: .12; } to { transform: translateX(1230px); opacity: .55; } }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .sans { font-family: "Segoe UI", Ubuntu, "Helvetica Neue", Arial, sans-serif; }
+    .star { animation: twinkle 3.2s ease-in-out infinite; }
+    .s2 { animation-delay: .8s; } .s3 { animation-delay: 1.6s; } .s4 { animation-delay: 2.4s; }
+    .floor { animation: floor 1.6s linear infinite; }
+    .beam { animation: beam 7s ease-in-out infinite; }
+    .ring1 { transform-origin: 950px 196px; animation: spin 18s linear infinite; }
+    .ring2 { transform-origin: 950px 196px; animation: spin 28s linear infinite reverse; }
+    .ring3 { transform-origin: 950px 196px; animation: spin 9s linear infinite; }
+    .sat1 { transform-origin: 950px 196px; animation: spin 7s linear infinite; }
+    .sat2 { transform-origin: 950px 196px; animation: spin 11s linear infinite reverse; }
+    .wave { transform-origin: 950px 196px; animation: wave 3.6s ease-out infinite; }
+    .wave.w2 { animation-delay: 1.2s; } .wave.w3 { animation-delay: 2.4s; }
+    .hover { animation: hover 4s ease-in-out infinite; }
+    .pulse { animation: pulse 2.2s ease-in-out infinite; }
+    .glitchA { animation: glitchA 5s steps(1) infinite; }
+    .glitchB { animation: glitchB 5s steps(1) infinite; }
+    .underline { stroke-dasharray: 560; animation: draw 5s ease-in-out infinite; }
+    .boot { animation: boot .7s ease-out both; }
+    .b1 { animation-delay: .4s; } .b2 { animation-delay: 1.3s; } .b3 { animation-delay: 2.2s; }
+    .cursor { animation: blink 1s steps(1) infinite; }
+    .stream { animation: stream 6s linear infinite; }
+    .stream.d2 { animation-delay: -2s; } .stream.d3 { animation-delay: -4s; }
+    @keyframes twinkle { 50% { opacity: .15; } }
+    @keyframes floor { to { transform: translateY(24px); } }
+    @keyframes beam { 0% { transform: translateX(-200px); } 100% { transform: translateX(1400px); } }
     @keyframes spin { to { transform: rotate(360deg); } }
-    @keyframes float { 50% { transform: translateY(-9px); } }
-    @keyframes pulse { 50% { opacity: .35; } }
-    @keyframes march { to { stroke-dashoffset: -230; } }
-    @media (prefers-reduced-motion: reduce) { .scan,.orbit,.orbit-reverse,.float,.pulse,.dash { animation: none; } }
+    @keyframes wave { 0% { transform: scale(.45); opacity: .7; } 100% { transform: scale(1.6); opacity: 0; } }
+    @keyframes hover { 50% { transform: translateY(-8px); } }
+    @keyframes pulse { 50% { opacity: .3; } }
+    @keyframes glitchA { 0%, 90%, 94%, 100% { transform: translate(0, 0); opacity: 0; } 91% { transform: translate(-5px, 1px); opacity: .85; } 93% { transform: translate(4px, -2px); opacity: .85; } }
+    @keyframes glitchB { 0%, 90%, 94%, 100% { transform: translate(0, 0); opacity: 0; } 91% { transform: translate(5px, -1px); opacity: .85; } 93% { transform: translate(-3px, 2px); opacity: .85; } }
+    @keyframes draw { 0% { stroke-dashoffset: 560; } 25%, 85% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -560; } }
+    @keyframes boot { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: none; } }
+    @keyframes blink { 50% { opacity: 0; } }
+    @keyframes stream { from { transform: translateY(-120px); } to { transform: translateY(440px); } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; }
+    }
   </style>
-  <g clip-path="url(#clip)">
-    <rect width="1200" height="360" fill="url(#surface)"/>
-    <rect width="1200" height="360" fill="url(#grid)"/>
-    <circle cx="1042" cy="170" r="275" fill="url(#glow)" opacity=".32"/>
-    <path d="M0 312C285 236 493 370 760 270S1043 223 1200 283" fill="none" stroke="#7B7DFC" stroke-opacity=".18" stroke-width="2"/>
-    <path d="M0 332C300 250 531 382 771 296S1059 250 1200 302" fill="none" stroke="#55D6FF" stroke-opacity=".12"/>
-    <rect class="scan" x="0" y="0" width="110" height="360" fill="#83D9FF" opacity=".12" filter="url(#blur)"/>
-    <g opacity=".92">
-      <circle class="orbit" cx="991" cy="180" r="116" fill="none" stroke="url(#accent)" stroke-opacity=".55" stroke-width="1.5" stroke-dasharray="12 19"/>
-      <ellipse class="orbit-reverse" cx="991" cy="180" rx="157" ry="64" fill="none" stroke="#70C9FF" stroke-opacity=".42" stroke-width="1.5"/>
-      <circle cx="991" cy="180" r="76" fill="#0D2441" stroke="#67DDF5" stroke-opacity=".65"/>
-      <circle class="pulse" cx="991" cy="180" r="55" fill="url(#glow)"/>
-      <g class="float">
-        <path d="M966 191l25-47 26 47-26 27z" fill="none" stroke="url(#accent)" stroke-width="3" stroke-linejoin="round"/>
-        <path d="M966 191h51M991 144v74" fill="none" stroke="#A7ECFF" stroke-opacity=".7"/>
+
+  <g clip-path="url(#frame)">
+    <!-- deep space -->
+    <rect width="1200" height="420" fill="url(#space)"/>
+    <rect width="1200" height="420" fill="url(#nebula)"/>
+    <rect width="1200" height="420" fill="url(#nebula2)"/>
+
+    <!-- starfield -->
+    <g fill="#CFF6FF">
+      <circle class="star" cx="62" cy="28" r="1.1"/><circle class="star s2" cx="140" cy="92" r=".9"/>
+      <circle class="star s3" cx="236" cy="22" r="1.3"/><circle class="star s4" cx="318" cy="76" r=".8"/>
+      <circle class="star" cx="402" cy="30" r="1"/><circle class="star s3" cx="488" cy="98" r="1.2"/>
+      <circle class="star s2" cx="566" cy="24" r=".9"/><circle class="star s4" cx="640" cy="66" r="1.4"/>
+      <circle class="star" cx="712" cy="18" r=".8"/><circle class="star s2" cx="690" cy="128" r="1"/>
+      <circle class="star s3" cx="772" cy="92" r="1.1"/><circle class="star s4" cx="1110" cy="34" r="1.2"/>
+      <circle class="star" cx="1160" cy="110" r=".9"/><circle class="star s2" cx="1132" cy="214" r="1"/>
+      <circle class="star s3" cx="760" cy="246" r=".8"/><circle class="star s4" cx="604" cy="188" r="1"/>
+      <circle class="star s2" cx="1172" cy="268" r="1.1"/><circle class="star" cx="1068" cy="72" r=".7"/>
+    </g>
+
+    <!-- falling data streams -->
+    <g class="mono" font-size="11" fill="#00E5FF" fill-opacity=".22">
+      <text class="stream" x="700" y="0">1<tspan x="700" dy="14">0</tspan><tspan x="700" dy="14">1</tspan><tspan x="700" dy="14">1</tspan><tspan x="700" dy="14">0</tspan><tspan x="700" dy="14">1</tspan></text>
+      <text class="stream d2" x="760" y="0" fill="#8B5CFF">0<tspan x="760" dy="14">1</tspan><tspan x="760" dy="14">0</tspan><tspan x="760" dy="14">0</tspan><tspan x="760" dy="14">1</tspan></text>
+      <text class="stream d3" x="1150" y="0">1<tspan x="1150" dy="14">1</tspan><tspan x="1150" dy="14">0</tspan><tspan x="1150" dy="14">1</tspan><tspan x="1150" dy="14">0</tspan><tspan x="1150" dy="14">1</tspan></text>
+    </g>
+
+    <!-- synthwave floor -->
+    <g clip-path="url(#floorClip)">
+      <g stroke="#8B5CFF" stroke-opacity=".55" stroke-width="1">
+        <path d="M600 300L-600 420M600 300L-300 420M600 300L0 420M600 300L200 420M600 300L400 420M600 300L600 420M600 300L800 420M600 300L1000 420M600 300L1200 420M600 300L1500 420M600 300L1800 420"/>
       </g>
-      <circle cx="835" cy="180" r="5" fill="#66E6FF"/>
-      <circle cx="1107" cy="181" r="5" fill="#D696FF"/>
-      <circle cx="991" cy="64" r="5" fill="#68D9FF"/>
-      <circle cx="991" cy="296" r="5" fill="#FF86D8"/>
+      <g class="floor" stroke="#00E5FF" stroke-opacity=".45">
+        <path d="M0 282H1200M0 306H1200M0 330H1200M0 354H1200M0 378H1200M0 402H1200M0 426H1200"/>
+      </g>
+      <rect x="0" y="300" width="1200" height="120" fill="url(#floorFade)"/>
     </g>
-    <g font-family="Arial,Helvetica,sans-serif">
-      <rect x="56" y="42" width="183" height="28" rx="14" fill="#123047" stroke="#4DADCF" stroke-opacity=".65"/>
-      <circle class="pulse" cx="74" cy="56" r="4" fill="#77F0DB"/>
-      <text x="87" y="61" fill="#9BE9F3" font-size="12" font-weight="700" letter-spacing="2">OPEN TO BUILD</text>
-      <text x="54" y="139" fill="#F3F8FF" font-size="62" font-weight="800" letter-spacing="-2">ISHAN KUMAR</text>
-      <rect x="56" y="158" width="500" height="4" rx="2" fill="url(#accent)"/>
-      <text x="55" y="214" fill="#A5E7FF" font-size="31" font-weight="700" letter-spacing="1">BUILDING WHAT'S NEXT</text>
-      <text x="57" y="250" fill="#A9B8CF" font-size="17" letter-spacing=".8">Software engineering  /  AI  /  Products</text>
-      <text x="57" y="312" fill="#718BA7" font-size="13" letter-spacing="2">LEARN  →  BUILD  →  SHIP  →  IMPROVE</text>
-      <text x="1128" y="324" text-anchor="end" fill="#87A6C3" font-size="12" letter-spacing="1.5">@ISHAN-ONE8</text>
+    <path d="M0 300H1200" stroke="url(#neon)" stroke-width="1.5" filter="url(#bloom)"/>
+
+    <!-- scanning beam -->
+    <rect class="beam" x="0" y="0" width="90" height="420" fill="#6FF3FF" opacity=".08" filter="url(#soft)"/>
+
+    <!-- reactor core -->
+    <circle cx="950" cy="196" r="190" fill="url(#coreGlow)" opacity=".45"/>
+    <g fill="none">
+      <circle class="wave" cx="950" cy="196" r="90" stroke="#00E5FF" stroke-width="1.2"/>
+      <circle class="wave w2" cx="950" cy="196" r="90" stroke="#8B5CFF" stroke-width="1.2"/>
+      <circle class="wave w3" cx="950" cy="196" r="90" stroke="#FF3DCB" stroke-width="1.2"/>
+      <circle class="ring2" cx="950" cy="196" r="138" stroke="#8B5CFF" stroke-opacity=".5" stroke-width="1" stroke-dasharray="2 8"/>
+      <circle class="ring1" cx="950" cy="196" r="118" stroke="url(#neon)" stroke-width="2" stroke-dasharray="64 22 6 22"/>
+      <circle class="ring3" cx="950" cy="196" r="96" stroke="#00E5FF" stroke-opacity=".7" stroke-width="3" stroke-dasharray="40 260"/>
+      <circle cx="950" cy="196" r="78" fill="#070D24" stroke="#00E5FF" stroke-opacity=".55"/>
     </g>
-    <rect x="1" y="1" width="1198" height="358" rx="25" fill="none" stroke="url(#accent)" stroke-opacity=".48" stroke-width="2"/>
+    <g class="sat1"><circle cx="950" cy="78" r="5" fill="#00E5FF" filter="url(#bloom)"/></g>
+    <g class="sat2"><circle cx="1088" cy="196" r="4" fill="#FF3DCB" filter="url(#bloom)"/></g>
+    <g stroke="#7FDBFF" stroke-opacity=".5" stroke-width="2">
+      <path d="M950 46v12M950 334v12M800 196h12M1088 196h12"/>
+    </g>
+    <g class="hover">
+      <path d="M950 150l40 23v46l-40 23-40-23v-46z" fill="#0B1638" stroke="url(#neon)" stroke-width="2.5" stroke-linejoin="round" filter="url(#bloom)"/>
+      <text class="sans" x="950" y="208" text-anchor="middle" font-size="34" font-weight="800" fill="#E9FBFF" letter-spacing="1">IK</text>
+    </g>
+    <text class="mono pulse" x="950" y="370" text-anchor="middle" font-size="11" fill="#7FDBFF" letter-spacing="3">CORE // STABLE</text>
+
+    <!-- status chip -->
+    <g class="mono">
+      <rect x="56" y="44" width="246" height="28" rx="14" fill="#06202B" stroke="#00E5FF" stroke-opacity=".55"/>
+      <circle class="pulse" cx="75" cy="58" r="4.5" fill="#3DFFB4"/>
+      <text x="88" y="63" font-size="12" font-weight="700" fill="#9CF6FF" letter-spacing="2">SYSTEM ONLINE // 2026</text>
+    </g>
+
+    <!-- name with glitch -->
+    <g class="sans" font-size="74" font-weight="900" letter-spacing="-1">
+      <text class="glitchA" x="52" y="150" fill="#00E5FF">ISHAN KUMAR</text>
+      <text class="glitchB" x="52" y="150" fill="#FF3DCB">ISHAN KUMAR</text>
+      <text x="52" y="150" fill="#F2FBFF">ISHAN KUMAR</text>
+    </g>
+    <path class="underline" d="M56 172H616" stroke="url(#neon)" stroke-width="4" stroke-linecap="round" filter="url(#bloom)"/>
+
+    <text class="sans" x="56" y="214" font-size="19" font-weight="600" fill="#A9C4E6" letter-spacing="4">DEVELOPER · AI BUILDER · PRODUCT THINKER</text>
+
+    <!-- boot sequence -->
+    <g class="mono" font-size="14">
+      <text class="boot b1" x="56" y="246" fill="#5E7AA0">&gt; init neural_modules <tspan fill="#3DFFB4">[ OK ]</tspan></text>
+      <text class="boot b2" x="56" y="268" fill="#5E7AA0">&gt; load ideas.exe --mode=ship <tspan fill="#3DFFB4">[ OK ]</tspan></text>
+      <text class="boot b3" x="56" y="289" fill="#CFF6FF">&gt; status: <tspan fill="#00E5FF" font-weight="700">BUILDING WHAT'S NEXT</tspan><tspan class="cursor" fill="#00E5FF">█</tspan></text>
+    </g>
+
+    <!-- bottom ticker -->
+    <rect x="40" y="380" width="1120" height="24" rx="12" fill="#03050D" fill-opacity=".75"/>
+    <g class="mono" font-size="11" letter-spacing="2.5">
+      <text x="56" y="396" fill="#9DB4DA">LEARN  →  BUILD  →  SHIP  →  IMPROVE</text>
+      <text x="1144" y="396" text-anchor="end" fill="#9DB4DA">@ISHAN-ONE8</text>
+    </g>
+
+    <!-- HUD brackets -->
+    <g fill="none" stroke="#00E5FF" stroke-opacity=".8" stroke-width="2">
+      <path d="M18 52V18h34M1148 18h34v34M1182 368v34h-34M52 402H18v-34"/>
+    </g>
+    <rect width="1200" height="420" fill="url(#scanlines)"/>
+    <rect x="1" y="1" width="1198" height="418" rx="22" fill="none" stroke="url(#neon)" stroke-opacity=".55" stroke-width="2"/>
   </g>
 </svg>

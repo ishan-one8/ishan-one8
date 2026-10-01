@@ -20,12 +20,12 @@ jobs:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
             dist/github-snake.svg
-            dist/github-snake-dark.svg?palette=github-dark
+            dist/github-snake-dark.svg?palette=github-dark&color_snake=#00E5FF&color_dots=#161b22,#1b2a5e,#3b2fa0,#8b5cff,#ff3dcb
 
-      - name: Push snake to output branch
+      - name: Push snake to gh-pages branch
         uses: crazy-max/ghaction-github-pages@v4
         with:
           build_dir: dist
-          branch: output
+          branch: gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

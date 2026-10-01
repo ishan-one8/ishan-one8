@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="200" viewBox="0 0 1200 200" role="img" aria-labelledby="t d">
+  <title id="t">End of transmission</title>
+  <desc id="d">A neon horizon with a setting sun and the message: have an idea? let's build something useful.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#04060F"/><stop offset=".6" stop-color="#080C22"/><stop offset="1" stop-color="#130828"/>
+    </linearGradient>
+    <linearGradient id="neon" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#00E5FF"/><stop offset=".5" stop-color="#8B5CFF"/><stop offset="1" stop-color="#FF3DCB"/>
+    </linearGradient>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#7FA6FF" stroke-opacity=".06"/>
+    </pattern>
+    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="1" fill="#FFFFFF" fill-opacity=".022"/>
+    </pattern>
+    <filter id="bloom" x="-30%" y="-80%" width="160%" height="260%">
+      <feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#FF3DCB"/><stop offset="1" stop-color="#8B5CFF"/></linearGradient>
+    <linearGradient id="ff" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#04060F"/><stop offset=".5" stop-color="#04060F" stop-opacity="0"/></linearGradient>
+    <clipPath id="c"><rect x="1" y="1" width="1198" height="198" rx="18"/></clipPath>
+    <clipPath id="floor"><rect y="140" width="1200" height="60"/></clipPath>
+    <clipPath id="sky"><rect width="1200" height="140"/></clipPath>
+    <mask id="slits"><rect width="1200" height="200" fill="#fff"/><g fill="#000"><rect y="114" width="1200" height="3"/><rect y="123" width="1200" height="4"/><rect y="132" width="1200" height="5"/></g></mask>
+  </defs>
+  <style>
+    .f { animation: f 1.4s linear infinite; }
+    .glow { animation: glow 3s ease-in-out infinite; }
+    .cursor { animation: blink 1s steps(1) infinite; }
+    @keyframes f { to { transform: translateY(16px); } }
+    @keyframes glow { 50% { opacity: .65; } }
+    @keyframes blink { 50% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+  <g clip-path="url(#c)">
+    <rect width="1200" height="200" fill="url(#bg)"/>
+    <g clip-path="url(#sky)"><circle class="glow" cx="600" cy="142" r="54" fill="url(#sun)" mask="url(#slits)" filter="url(#bloom)"/></g>
+    <g clip-path="url(#floor)">
+      <path d="M600 140L-400 200M600 140L0 200M600 140L300 200M600 140L600 200M600 140L900 200M600 140L1200 200M600 140L1600 200" stroke="#8B5CFF" stroke-opacity=".6"/>
+      <g class="f" stroke="#00E5FF" stroke-opacity=".5"><path d="M0 128H1200M0 144H1200M0 160H1200M0 176H1200M0 192H1200M0 208H1200"/></g>
+      <rect y="140" width="1200" height="60" fill="url(#ff)"/>
+    </g>
+    <path d="M0 140H1200" stroke="url(#neon)" stroke-width="1.5" filter="url(#bloom)"/>
+    <text x="600" y="44" text-anchor="middle" font-family="&quot;Segoe UI&quot;, Ubuntu, &quot;Helvetica Neue&quot;, Arial, sans-serif" style="font-family:&quot;Segoe UI&quot;, Ubuntu, &quot;Helvetica Neue&quot;, Arial, sans-serif" font-size="30" font-weight="800" fill="#F2FBFF">Have an idea? Let's build something useful.</text>
+    <text x="600" y="70" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, &quot;Liberation Mono&quot;, monospace" style="font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, &quot;Liberation Mono&quot;, monospace" font-size="12" fill="#7F96BE" letter-spacing="4">// END OF TRANSMISSION<tspan class="cursor" fill="#00E5FF"> █</tspan></text>
+    <rect width="1200" height="200" fill="url(#scan)"/>
+  </g>
+  <rect x="1" y="1" width="1198" height="198" rx="18" fill="none" stroke="url(#neon)" stroke-opacity=".5" stroke-width="2"/>
+</svg>
