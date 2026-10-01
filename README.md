@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1>Hi, I'm Ishan Kumar 👋</h1>
+<img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/hero.svg" alt="Ishan Kumar — Building What's Next, an animated futuristic banner" width="100%" />
 
 <a href="https://github.com/ishan-one8">
   <img src="https://readme-typing-svg.demolab.com?font=Space+Grotesk&weight=700&size=28&duration=2500&pause=900&color=58A6FF&center=true&vCenter=true&width=750&height=52&lines=I+build+ideas+into+software.;Code.+Create.+Ship.+Repeat.;Always+learning%2C+always+building." alt="Animated text: I build ideas into software" />
@@ -12,6 +12,7 @@
 
 <a href="https://github.com/ishan-one8?tab=repositories"><img alt="Explore repositories" src="https://img.shields.io/badge/Explore_my_work-161B22?style=for-the-badge&logo=github&logoColor=white" /></a>
 <a href="https://www.instagram.com/ishan_one8/"><img alt="Connect on Instagram" src="https://img.shields.io/badge/Let's_connect-E4405F?style=for-the-badge&logo=instagram&logoColor=white" /></a>
+<a href="https://github.com/ishan-one8?tab=followers"><img alt="Live GitHub follower count" src="https://img.shields.io/github/followers/ishan-one8?style=for-the-badge&label=FOLLOWERS&color=7B7DFC&logo=github" /></a>
 
 <br /><br />
 
