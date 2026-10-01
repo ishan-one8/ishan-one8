@@ -60,6 +60,7 @@ def fetch():
         langs=sorted(langs.items(), key=lambda kv: -kv[1]),
         weeks=weeks,
         calendar=calendar,
+        active_days=sum(1 for w in calendar for d in w if d[2]),
     )
 
 
@@ -92,8 +93,10 @@ def card(data):
         bh = 230
         H = y2 + bh
         parts = []
+        second = (("STARS EARNED", data["stars"], "across all repos") if data["stars"] >= 10 else
+                  ("ACTIVE DAYS", data["active_days"], "with commits this year"))
         kpis = [("PUBLIC REPOS", data["repos"], "projects shipped"),
-                ("STARS EARNED", data["stars"], "across all repos"),
+                second,
                 ("FOLLOWERS", data["followers"], "on GitHub"),
                 ("CONTRIBUTIONS", data["contributions"], "in the last year")]
         for i, (label, val, sub) in enumerate(kpis):
@@ -167,7 +170,7 @@ def card(data):
         parts.append(eyebrow(t, W - 4, H + 26, f"SYNCED {stamp}  ·  UPDATES DAILY", "end"))
         langs = ", ".join(f"{n} {v / total * 100:.0f}%" for n, v in top)
         return svg(t, W, H + 34, "".join(parts), "GitHub numbers",
-                   f"{data['repos']} public repositories, {data['stars']} stars, {data['followers']} followers and "
+                   f"{data['repos']} public repositories, {second[1]} {second[0].lower()}, {data['followers']} followers and "
                    f"{data['contributions']} contributions in the last year. Top languages: {langs}.", css)
     return f
 

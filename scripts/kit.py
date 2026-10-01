@@ -125,7 +125,7 @@ def tile(t, x, y, w, h, r=22, glow=None):
         g = f'<g clip-path="url(#tc{int(x)}_{int(y)})"><circle cx="{cx}" cy="{cy}" r="120" fill="{col}" opacity="{t["aur_op"] * .55:.2f}" filter="url(#blur)"/></g>'
     return f"""
   <clipPath id="tc{int(x)}_{int(y)}"><rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{r}"/></clipPath>
-  <rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{r}" fill="url(#surf)" filter="url(#shadow)"/>
+  <rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{r}" fill="url(#surf)"{'' if t is THEMES['dark'] else ' filter="url(#shadow)"'}/>
   {g}
   <rect x="{x + .5}" y="{y + .5}" width="{w - 1}" height="{h - 1}" rx="{r - .5}" fill="none" stroke="{t['hair']}" stroke-opacity="{t['hair_op']}"/>
   <path d="M{x + r} {y + .6}H{x + w - r}" stroke="url(#hi)"/>"""
