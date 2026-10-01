@@ -60,7 +60,7 @@ def hero(redbull_logo, rb_w):
                     f'<rect class="led" style="animation-delay:{i * .1:.1f}s" x="{56 + i * 22}" y="410" width="16" height="10" rx="3" fill="{c}"/>')
     speeds = [312, 327, 338, 346, 342, 335]
     spd = "".join(
-        f'<g class="spd" style="animation-delay:{k * .5:.1f}s">{race(66, 482, str(v), 40, 900, "#FFFFFF", skew=False)}</g>'
+        f'<g class="spd{" spd0" if k == 0 else ""}" style="animation-delay:{k * .5:.1f}s">{race(66, 482, str(v), 40, 900, "#FFFFFF", skew=False)}</g>'
         for k, v in enumerate(speeds))
     lines = "".join(
         f'<rect class="sl" style="animation-delay:{-k * .23:.2f}s" x="{420 + (k * 97) % 560}" y="{410 + (k * 37) % 120}" '
@@ -92,7 +92,7 @@ def hero(redbull_logo, rb_w):
     @keyframes rise{{from{{opacity:0;transform:translateX(-24px);}}to{{opacity:1;transform:none;}}}}
     .ping{{transform-box:fill-box;transform-origin:center;animation:ping 2s cubic-bezier(0,0,.2,1) infinite;}}
     @keyframes ping{{75%,100%{{transform:scale(2.6);opacity:0;}}}}
-    @media (prefers-reduced-motion: reduce){{.l0,.l1,.l2,.l3,.l4,.lo,.led{{opacity:0;}} .spd{{opacity:0;}} .spd:first-child{{opacity:1;}}}}"""
+    @media (prefers-reduced-motion: reduce){{.l0,.l1,.l2,.l3,.l4,.lo,.led{{opacity:0;}} .spd{{opacity:0;}} .spd0{{opacity:1;}}}}"""
     status_w = 30 + measure("ON TRACK  ·  OPEN TO BUILD", 12, "mono") + 16
     body = f"""
 <g clip-path="url(#frame)">
