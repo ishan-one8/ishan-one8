@@ -9,6 +9,10 @@
 
 <br /><br />
 
+<img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/portrait.svg" alt="Pit wall terminal: a pixel-art portrait of Ishan in Red Bull Racing navy, red and yellow, beside a driver readout. Driver Ishan Kumar, number 18. Developer, builder, product thinker. B.Tech CSE at Newton School of Technology, Bengaluru. Python, TypeScript, JavaScript. On track, open to build." width="100%" />
+
+<br /><br />
+
 <img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/section-about.svg" alt="01 — The driver" width="100%" />
 
 <img src="https://raw.githubusercontent.com/ishan-one8/ishan-one8/main/assets/about.svg" alt="Driver profile: Ishan Kumar, number 18. Developer, builder, product thinker. Speciality: Python, web products and AI experiments. Race plan: learn, build, ship, improve. On track and open to build." width="100%" />
